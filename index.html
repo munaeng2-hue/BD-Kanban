@@ -110,44 +110,10 @@ main{min-width:0;overflow-y:auto;background:var(--bg)}
 <div class="kk" style="border-left:3px solid #2e7d32"><div class="kl">合同审核中</div><div class="kv" style="color:#2e7d32">2</div></div>
 </div>
 <div class="cr">
-<div class="cc"><h4>📈 阶段分布</h4><canvas id="c_stage" style="height:220px"></canvas></div>
-<div class="cc"><h4>📂 品类分布</h4><canvas id="c_cat" style="height:220px"></canvas></div>
+<div class="cc"><h4>📅 季度签约分布</h4><canvas id="c_qcontract" style="height:220px"></canvas></div>
+<div class="cc"><h4>🤝 合作模式分布</h4><canvas id="c_mcontract" style="height:220px"></canvas></div>
 </div>
-<div class="cr">
-<div class="cc"><h4>🤝 合作模式</h4><canvas id="c_model" style="height:200px"></canvas></div>
-<div class="cc">
-<h4>📋 行动阶段分布</h4>
-<div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-<div style="flex:1;min-width:70px;background:#fff3e0;border-radius:7px;padding:10px 8px;text-align:center">
-<div style="font-size:20px;font-weight:700;color:#e65100">7</div><div style="font-size:10px;color:#666">内部反馈待定</div></div>
-<div style="flex:1;min-width:70px;background:#f3e5f5;border-radius:7px;padding:10px 8px;text-align:center">
-<div style="font-size:20px;font-weight:700;color:#8e44ad">2</div><div style="font-size:10px;color:#666">品牌回复待定</div></div>
-<div style="flex:1;min-width:70px;background:#e3f2fd;border-radius:7px;padding:10px 8px;text-align:center">
-<div style="font-size:20px;font-weight:700;color:#1575c0">3</div><div style="font-size:10px;color:#666">天猫对接</div></div>
-<div style="flex:1;min-width:70px;background:#e8f5e9;border-radius:7px;padding:10px 8px;text-align:center">
-<div style="font-size:20px;font-weight:700;color:#2e7d32">2</div><div style="font-size:10px;color:#666">合同审核中</div></div>
-</div></div></div>
-<div class="warn-box"><h4>⚡ 紧急事项</h4><ul id="urgent-list"></ul></div>
-</div>
-
-<div class="pp" id="p-pipeline">
-<div class="st"><span class="sd tm"></span>BD 看板</div>
-<div class="cc" style="overflow-x:auto">
-<table class="dt" id="pipe-table"><thead><tr>
-<th>品牌</th><th>品类</th><th>当前阶段</th><th>行动阶段</th><th>合作模式</th><th>⏰ 提醒/DDL</th><th>待办</th>
-</tr></thead><tbody></tbody></table>
-</div></div>
-
-<div class="pp" id="p-progress">
-<div class="st"><span class="sd pu"></span>品牌签约进度 <span style="font-weight:400;font-size:12px;color:#888">(合同品牌基本信息)</span></div>
-<div class="kr3">
-<div class="kk tm"><div class="kl">总签约数</div><div class="kv">14<span style="font-size:14px;font-weight:400;color:#888">个</span></div></div>
-<div class="kk ot"><div class="kl">进行中</div><div class="kv">15<span style="font-size:14px;font-weight:400;color:#888">个</span></div></div>
-<div class="kk dy"><div class="kl">已结束</div><div class="kv">2<span style="font-size:14px;font-weight:400;color:#888">个</span></div></div>
-</div>
-<div class="cr">
-<div class="cc"><h4>📅 季度签约趋势</h4><canvas id="c_timeline" style="height:220px"></canvas></div>
-<div class="cc" style="overflow-x:auto"><h4>📋 签约明细</h4>
+<div class="cc" style="overflow-x:auto;margin-bottom:14px"><h4>📋 签约明细</h4></h4>
 <table class="dt" id="prog-table"><thead><tr>
 <th>品牌</th><th>合作模式</th><th>状态</th><th>合同期间</th><th>负责人</th>
 </tr></thead><tbody></tbody></table>
