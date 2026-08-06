@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>韩流组 BD 看板</title>
 <script>/**
  * Skipped minification because the original files appears to be already minified.
@@ -66,14 +66,40 @@ main{min-width:0;overflow-y:auto;background:#f5f7f4}
 .warn li{font-size:12px;line-height:1.7;color:#b71c1c;padding:2px 0 2px 17px;position:relative;list-style:none}
 .warn li::before{content:'\26A0';position:absolute;left:0;font-size:11px}
 .sb-overlay,.mh-btn{display:none}
+@media(max-width:1100px){.kr{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:777px){
-.app{flex-direction:column;height:auto}.sb{display:none}.pb{padding:10px 12px}
-.kr,.kr3{grid-template-columns:1fr}.cr{grid-template-columns:1fr}
-.kk{padding:10px 12px}.kv{font-size:20px!important}
-.mhd{padding:0 12px;height:auto;min-height:44px;position:sticky;top:0;z-index:100}
+.app{display:block;height:auto}
 .sb{position:fixed;top:0;left:0;bottom:0;width:260px;z-index:1000;transform:translateX(-100%);transition:transform .25s ease;box-shadow:2px 0 12px rgba(0,0,0,.15);display:flex!important}
-.sb.open{transform:translateX(0)}.sb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:999}.sb-overlay.open{display:block}
-.mh-btn{display:flex!important;align-items:center;justify-content:center;width:32px;height:32px;border:none;background:0 0;border-radius:7px;cursor:pointer;font-size:17px;color:#1a2e1a}
+.sb.open{transform:translateX(0)}
+.sb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:999}.sb-overlay.open{display:block}
+.mh-btn{display:flex!important;align-items:center;justify-content:center;width:32px;height:32px;border:none;background:0 0;border-radius:7px;cursor:pointer;font-size:17px;color:#1a2e1a;flex-shrink:0}
+main{min-width:100%;overflow-x:hidden}
+.mhd{padding:0 12px;height:48px}
+.mhd h1{font-size:15px}
+.pb{padding:10px 12px}
+.kr,.kr3{grid-template-columns:repeat(2,1fr);gap:8px}
+.cr{grid-template-columns:1fr;gap:10px}
+.kk{padding:10px 12px}
+.kv{font-size:18px!important}.kl{font-size:11px}.ks{font-size:10px}
+.st{font-size:13px;margin:16px 0 8px}
+.cc{padding:10px 12px}.cc h4{font-size:12px}
+.cc canvas{height:200px!important;max-height:200px}
+.dt{font-size:10px}.dt th,.dt td{padding:5px 7px;font-size:10px}
+.warn{padding:10px 12px}.warn h4{font-size:12px}.warn li{font-size:11px}
+.bd{font-size:9px;padding:1px 5px}
+}
+@media(max-width:480px){
+.pb{padding:8px 10px}
+.kr,.kr3{grid-template-columns:1fr!important;gap:6px}
+.kk{padding:8px 10px}
+.kv{font-size:16px!important}.kl{font-size:10px}
+.st{font-size:12px;margin:12px 0 6px}
+.cc{padding:8px 10px}.cc h4{font-size:11px}
+.cc canvas{height:170px!important;max-height:170px}
+.dt{font-size:9px}.dt th,.dt td{padding:4px 5px;font-size:9px}
+.bd{font-size:8px;padding:1px 4px}
+.mhd{padding:0 8px;height:44px}
+.mhd h1{font-size:14px}
 }</style>
 </head>
 <body>
@@ -84,8 +110,8 @@ main{min-width:0;overflow-y:auto;background:#f5f7f4}
 <div class="ns tm"><div class="nst tm">看板</div>
 <div class="ni ac" data-route="overview" onclick="n('overview')"><span class="nidot"></span><span class="nil">📊 核心概览</span></div>
 <div class="ni" data-route="pipeline" onclick="n('pipeline')"><span class="nidot"></span><span class="nil">🔄 BD 看板</span><span class="nib">14个</span></div>
-<div class="ni" data-route="progress" onclick="n('progress')"><span class="nidot"></span><span class="nil">📅 品牌签约进度</span><span class="nib">17个</span></div></div></nav>
-<div class="sbf">数据更新: 2026/08/05</div></aside>
+<div class="ni" data-route="progress" onclick="n('progress')"><span class="nidot"></span><span class="nil">✅ 已完成签约品牌</span><span class="nib">17个</span></div></div></nav>
+<div class="sbf">数据更新: 2026/08/06</div></aside>
 <div class="sb-overlay" id="o" onclick="ts(false)"></div>
 <main>
 <div class="mhd"><button class="mh-btn" onclick="ts(true)">☰</button><h1 id="pt">📊 核心概览</h1></div>
@@ -117,14 +143,14 @@ main{min-width:0;overflow-y:auto;background:#f5f7f4}
 
 <div class="pp" id="p-pipeline">
 <div class="st"><span class="sd tm"></span>BD 看板</div>
-<div class="cc" style="overflow-x:auto">
+<div class="cc" style="overflow-x:auto;-webkit-overflow-scrolling:touch">
 <table class="dt" id="ptbl"><thead><tr>
 <th>品牌</th><th>品类</th><th>当前阶段</th><th>行动阶段</th><th>合作模式</th><th>⏰ 提醒/DDL</th><th>待办</th>
 </tr></thead><tbody></tbody></table>
 </div></div>
 
 <div class="pp" id="p-progress">
-<div class="st"><span class="sd pu"></span>品牌签约进度 <span style="font-weight:400;font-size:12px;color:#888">(合同品牌基本信息)</span></div>
+<div class="st"><span class="sd pu"></span>已完成签约品牌 <span style="font-weight:400;font-size:12px;color:#888">(合同品牌基本信息)</span></div>
 <div class="kr3">
 <div class="kk tm"><div class="kl">总签约</div><div class="kv">17<span style="font-size:14px;font-weight:400;color:#888">个</span></div></div>
 <div class="kk ot"><div class="kl">进行中</div><div class="kv">15<span style="font-size:14px;font-weight:400;color:#888">个</span></div></div>
@@ -134,7 +160,7 @@ main{min-width:0;overflow-y:auto;background:#f5f7f4}
 <div class="cc"><h4>📅 季度签约分布</h4><canvas id="c_quarter"></canvas></div>
 <div class="cc"><h4>🤝 合作模式分布</h4><canvas id="c_cmodel"></canvas></div>
 </div>
-<div class="cc" style="overflow-x:auto;margin-bottom:14px"><h4>📋 签约明细</h4>
+<div class="cc" style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px"><h4>📋 签约明细</h4>
 <table class="dt" id="ctbl"><thead><tr>
 <th>品牌</th><th>合作模式</th><th>状态</th><th>合同期间</th><th>负责人</th>
 </tr></thead><tbody></tbody></table>
@@ -147,25 +173,22 @@ var CC=[{"brand": "Arencia", "model": "总代", "start": "2025-07", "end": "2025
 var COL={"护肤": "#3a7c3f", "个护": "#e67e22", "彩妆": "#e91e63", "时尚": "#2970b9", "娱乐": "#8e44ad"};
 
 function ts(f){var s=document.querySelector('.sb'),o=document.getElementById('o');if(!s||!o)return;var p=typeof f==='boolean'?f:!s.classList.contains('open');s.classList.toggle('open',p);o.classList.toggle('open',p);document.body.style.overflow=p?'hidden':'';}
-var T={overview:'📊 核心概览',pipeline:'🔄 BD 看板',progress:'📅 品牌签约进度'};
+var T={overview:'📊 核心概览',pipeline:'🔄 BD 看板',progress:'✅ 已完成签约品牌'};
 function n(r){document.querySelectorAll('.ni').forEach(function(e){e.classList.remove('ac')});var t=document.querySelector('[data-route="'+r+'"]');if(t)t.classList.add('ac');document.querySelectorAll('.pp').forEach(function(e){e.classList.remove('ac')});var p=document.getElementById('p-'+r);if(p)p.classList.add('ac');document.getElementById('pt').textContent=T[r]||r;if(r==='overview')init();if(window.innerWidth<=777&&document.querySelector('.sb.open'))ts(false);}
 
 function init(){
-  if(typeof Chart==='undefined')return;
-  var cc=document.getElementById('c_cat');if(cc){if(window._cc)window._cc.destroy();window._cc=new Chart(cc,{type:'doughnut',data:{labels:["护肤", "个护", "彩妆", "时尚", "娱乐"],datasets:[{data:[6, 3, 3, 1, 1],backgroundColor:['#3a7c3f','#e67e22','#e91e63','#2970b9','#8e44ad']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});}
-  var cs=document.getElementById('c_stage');if(cs){if(window._cs)window._cs.destroy();window._cs=new Chart(cs,{type:'bar',data:{labels:['协商中','接洽中'],datasets:[{data:[7,7],backgroundColor:['#f39c12','#2970b9'],borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:2}}}}});}
-  var pm=document.getElementById('c_pmodel');if(pm){if(window._pm)window._pm.destroy();window._pm=new Chart(pm,{type:'bar',data:{labels:["总代"],datasets:[{data:[2],backgroundColor:["#3a7c3f"],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
-  var qc=document.getElementById('c_quarter');if(qc){if(window._qc)window._qc.destroy();window._qc=new Chart(qc,{type:'bar',data:{labels:["2025 Q3", "2025 Q4", "2026 Q2", "2026 Q3"],datasets:[{data:[5, 1, 1, 4],backgroundColor:'#3a7c3f',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
-  var mc=document.getElementById('c_cmodel');if(mc){if(window._mc)window._mc.destroy();window._mc=new Chart(mc,{type:'doughnut',data:{labels:["总代", "B2B", "B2B/TP", "TP"],datasets:[{data:[9, 3, 2, 1],backgroundColor:['#3a7c3f','#2970b9','#f39c12','#e74c3c']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});}
+if(typeof Chart==='undefined')return;
+var cc=document.getElementById('c_cat');if(cc){if(window._cc)window._cc.destroy();window._cc=new Chart(cc,{type:'doughnut',data:{labels:["护肤", "个护", "彩妆", "时尚", "娱乐"],datasets:[{data:[6, 3, 3, 1, 1],backgroundColor:['#3a7c3f','#e67e22','#e91e63','#2970b9','#8e44ad']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});}
+var cs=document.getElementById('c_stage');if(cs){if(window._cs)window._cs.destroy();window._cs=new Chart(cs,{type:'bar',data:{labels:['协商中','接洽中'],datasets:[{data:[7,7],backgroundColor:['#f39c12','#2970b9'],borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:2}}}}});}
+var pm=document.getElementById('c_pmodel');if(pm){if(window._pm)window._pm.destroy();window._pm=new Chart(pm,{type:'bar',data:{labels:["总代"],datasets:[{data:[2],backgroundColor:["#3a7c3f"],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
+var qc=document.getElementById('c_quarter');if(qc){if(window._qc)window._qc.destroy();window._qc=new Chart(qc,{type:'bar',data:{labels:["2025 Q3", "2025 Q4", "2026 Q2", "2026 Q3"],datasets:[{data:[5, 1, 1, 4],backgroundColor:'#3a7c3f',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
+var mc=document.getElementById('c_cmodel');if(mc){if(window._mc)window._mc.destroy();window._mc=new Chart(mc,{type:'doughnut',data:{labels:["总代", "B2B", "B2B/TP", "TP"],datasets:[{data:[9, 3, 2, 1],backgroundColor:['#3a7c3f','#2970b9','#f39c12','#e74c3c']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});}
 }
 
-// Urgency
 (function(){var u=[{"brand": "FRANZ", "stage": "协商中", "todo": "原有对接人离职，已与副社长通话 / 总代待新对接人到岗后重新商议"}, {"brand": "cellbycell", "stage": "协商中", "todo": "需确认是否有直播计划"}, {"brand": "lamy", "stage": "协商中", "todo": "内部审核中"}, {"brand": "유리코스", "stage": "协商中", "todo": "供应价及营销预算协商中"}, {"brand": "glutanex", "stage": "协商中", "todo": "已提交代运营方案，待内部反馈"}, {"brand": "New Select", "stage": "接洽中", "todo": "需提交合同修改方案"}, {"brand": "플라너", "stage": "协商中", "todo": "需确认메이원反馈日程"}];var h='';u.forEach(function(r){var b=r.stage==='协商中'?'<span class="bd bo">协商中</span> ':'<span class="bd bb">接洽中</span> ';h+='<li>'+b+'<b>'+r.brand+'</b>: '+r.todo+'</li>';});document.getElementById('ul').innerHTML=h;})();
 
-// Pipeline table
 (function(){var h='';PP.forEach(function(r){var c=COL[r.cat]||'#666';var sb=r.stage==='协商中'?'<span class="bd bo">协商中</span>':'<span class="bd bb">接洽中</span>';var ab;if(r.action.indexOf('待定')>=0||r.action.indexOf('대기')>=0)ab='<span class="bd bo">'+r.action+'</span>';else if(r.action.indexOf('审')>=0||r.action.indexOf('검토')>=0)ab='<span class="bd bg">'+r.action+'</span>';else ab='<span class="bd bb">'+r.action+'</span>';var rd=r.remind||'';if(rd){var rd2=new Date(rd),td=new Date();rd2.setHours(0,0,0,0);td.setHours(0,0,0,0);var dd=Math.ceil((rd2-td)/864e5);if(dd<0)rd='<span style="color:#e74c3c;font-weight:700">'+rd+' (已过期)</span>';else if(dd<=3)rd='<span style="color:#e67e22;font-weight:700">'+rd+' ('+dd+'天后)</span>';else rd='<span style="color:#888">'+rd+'</span>';}else rd='<span style="color:#ccc">-</span>';var model=r.model||'-';var todo=(r.todo||'-').replace(/\\n/g,'<br>');h+='<tr style="border-left:4px solid '+c+'"><td style="font-weight:700">'+r.brand+'</td><td><span class="bd" style="background:'+c+'15;color:'+c+'">'+r.cat+'</span></td><td>'+sb+'</td><td>'+ab+'</td><td>'+model+'</td><td style="font-size:11px">'+rd+'</td><td style="max-width:220px;font-size:11px;line-height:1.5">'+todo+'</td></tr>';});document.querySelector('#ptbl tbody').innerHTML=h;})();
 
-// Contract table
 (function(){var h='';CC.forEach(function(r){var sb=r.status==='active'?'<span class="bd bg">进行中</span>':'<span class="bd br">已结束</span>';var start=r.start||'-';var end=r.end||'-';var p=r.person||'-';h+='<tr><td style="font-weight:700">'+r.brand+'</td><td>'+r.model+'</td><td>'+sb+'</td><td style="font-size:11px">'+start+' ~ '+end+'</td><td>'+p+'</td></tr>';});document.querySelector('#ctbl tbody').innerHTML=h;})();
 
 init();
